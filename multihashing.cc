@@ -588,10 +588,10 @@ DECLARE_FUNC(chukwa) {
     SET_BUFFER_RETURN(output, 32);
 }
 
-DECLARE_FUNC(chukwa) {
+DECLARE_FUNC(ninja) {
     DECLARE_SCOPE;
 
-    // Chukwa Definitions
+    // Ninja Definitions
     const uint32_t hashlen = 32; // The length of the resulting hash in bytes
     const uint32_t saltlen = 16; // The length of our salt in bytes
     const uint32_t threads = 1; // How many threads to use at once
@@ -617,6 +617,7 @@ DECLARE_FUNC(chukwa) {
     argon2id_hash_raw(iters, memory, threads, input, input_len, salt, saltlen, output, hashlen);
 
     SET_BUFFER_RETURN(output, 32);
+}
 
 DECLARE_FUNC(boolberry) {
     DECLARE_SCOPE;
@@ -674,7 +675,7 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "cryptonightsoftshell", cryptonightsoftshell);
     NODE_SET_METHOD(exports, "cryptonight-soft-shell", cryptonightsoftshell);
     NODE_SET_METHOD(exports, "chukwa", chukwa);
-	NODE_SET_METHOD(exports, "ninja", chukwa);
+    NODE_SET_METHOD(exports, "ninja", ninja);
     NODE_SET_METHOD(exports, "fresh", fresh);
     NODE_SET_METHOD(exports, "fugue", fugue);
     NODE_SET_METHOD(exports, "groestl", groestl);
